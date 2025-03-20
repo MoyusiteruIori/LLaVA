@@ -16,6 +16,8 @@ tokenizer, model, image_processor, context_len = load_pretrained_model(
     mm_vision_tower="/data/mengyu/huggingface/clip-vit-large-patch14-336",
     attn_implementation="eager"
 )
+model.config.use_residual = True
+model.config.residual_layer = 13
 model: LlavaLlamaForCausalLM
 conv_mode = "llava_v1"
 conv = conv_templates[conv_mode].copy()
